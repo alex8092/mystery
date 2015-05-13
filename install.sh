@@ -37,6 +37,7 @@ fi
 
 echo "-> Write environment config";
 (cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
+(cd $HOME/.puzzle && echo "export PATH=$HOME/.puzzle/bin:$PATH" > .puzzlerc)
 
 echo "-> Create symbolic link";
 if [ -e $HOME/.puzzle/bin/puzzle ]; then
@@ -45,5 +46,5 @@ fi
 ln -s $HOME/puzzle/Utils/Tools/cmd.js $HOME/.puzzle/bin/puzzle
 
 echo "-> Start installation script";
-(cd $HOME/puzzle && node Utils/Tools/install.js)
+(cd $HOME/puzzle && node Utils/Tools/install.js && cd Utils/Tools && npm install)
 export PATH=$HOME/.puzzle/bin:$PATH
