@@ -10,6 +10,7 @@ fi
 echo "-> Create directory if require";
 mkdir -p $HOME/.puzzle/bin
 mkdir -p $HOME/.puzzle/config
+mkdir -p $HOME/.puzzle/modules
 mkdir -p $HOME/puzzle/Utils
 
 if [ ! -d $HOME/puzzle/Utils/Tools ]; then
@@ -36,7 +37,7 @@ if [ "$result" != "work" ]; then
 fi
 
 echo "-> Write environment config";
-(cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
+(cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"modules_directory\": \"$HOME/.puzzle/modules\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
 (cd $HOME/.puzzle && echo "export PATH=$HOME/.puzzle/bin:$PATH" > .puzzlerc)
 
 echo "-> Create symbolic link";
