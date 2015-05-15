@@ -38,7 +38,7 @@ if [ "$result" != "work" ]; then
 fi
 
 echo "-> Write environment config";
-(cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"modules_directory\": \"$HOME/.puzzle/modules\", \"autocompletes_directory\": \"$HOME/.puzzle/autocompletes\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
+(cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"modules_directory\": \"$HOME/.puzzle/modules\", \"autocompletes_directory\": \"$HOME/.puzzle/autocompletes\", \"config_directory\":\"$HOME/.puzzle/config\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
 (cd $HOME/.puzzle && echo "export PATH=\$HOME/.puzzle/bin:\$PATH\nfpath=(\$HOME/.puzzle/autocompletes/ \$fpath)\n" > .puzzlerc)
 
 echo "-> Create symbolic link";
