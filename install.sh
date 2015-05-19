@@ -16,7 +16,7 @@ mkdir -p $HOME/puzzle/Utils
 
 if [ ! -d $HOME/puzzle/Utils/Tools ]; then
 	echo "-> Clone repository";
-	git clone git@gitlab.intra.$1.com:Utils/Tools.git $HOME/puzzle/Utils/Tools 2> /dev/null > /dev/null
+	y | git clone git@gitlab.intra.$1.com:Utils/Tools.git $HOME/puzzle/Utils/Tools 2> /dev/null > /dev/null
 else
 	echo "-> Update repository";
 	(cd $HOME/puzzle/Utils/Tools && git pull origin master 2> /dev/null > /dev/null)
