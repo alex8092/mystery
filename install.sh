@@ -50,4 +50,3 @@ chmod +x $HOME/.puzzle/bin/puzzle
 
 echo "-> Start installation script";
 (cd $HOME/puzzle && node Utils/Tools/install.js && cd Utils/Tools && npm install)
-export PATH=$HOME/.puzzle/bin:$PATH
