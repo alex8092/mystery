@@ -46,6 +46,7 @@ if [ -e $HOME/.puzzle/bin/puzzle ]; then
 	rm -f $HOME/.puzzle/bin/puzzle
 fi
 echo -e "#!/bin/sh\nnode $HOME/puzzle/Utils/Tools/cmd.js" > $HOME/.puzzle/bin/puzzle
+chmod +x $HOME/.puzzle/bin/puzzle
 
 echo "-> Start installation script";
 (cd $HOME/puzzle && node Utils/Tools/install.js && cd Utils/Tools && npm install)
