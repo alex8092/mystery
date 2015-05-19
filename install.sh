@@ -41,11 +41,11 @@ echo "-> Write environment config";
 (cd $HOME/puzzle && echo "{ \"working_directory\": \"$PWD\", \"cmd_directory\": \"$PWD/Utils/Tools\", \"binary_directory\": \"$HOME/.puzzle/bin\", \"modules_directory\": \"$HOME/.puzzle/modules\", \"autocompletes_directory\": \"$HOME/.puzzle/autocompletes\", \"config_directory\":\"$HOME/.puzzle/config\", \"progname\": \"puzzle\" }" > $HOME/.puzzle/config/env.js)
 (cd $HOME/.puzzle && echo "export PATH=\$HOME/.puzzle/bin:\$PATH\n" > .puzzlerc)
 
-echo "-> Create symbolic link";
+echo "-> Create puzzle binary";
 if [ -e $HOME/.puzzle/bin/puzzle ]; then
 	rm -f $HOME/.puzzle/bin/puzzle
 fi
-ln -s $HOME/puzzle/Utils/Tools/cmd.js $HOME/.puzzle/bin/puzzle
+echo "#!/bin/sh node $HOME/puzzle/Utils/Tools/cmd.js" > $HOME/.puzzle/bin/puzzle
 
 echo "-> Start installation script";
 (cd $HOME/puzzle && node Utils/Tools/install.js && cd Utils/Tools && npm install)
