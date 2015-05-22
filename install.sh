@@ -15,6 +15,7 @@ mkdir -p $HOME/.puzzle/autocompletes
 mkdir -p $HOME/puzzle/Utils
 
 ssh-keyscan gitlab.intra.$1.com >> $HOME/.ssh/known_hosts
+ssh-keyscan gitlab.$1.com >> $HOME/.ssh/known_hosts
 
 if [ ! -d $HOME/puzzle/Utils/Tools ]; then
 	echo "-> Clone repository"
